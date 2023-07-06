@@ -11,9 +11,8 @@ public class MyController {
 
     @GetMapping("/getObject")
     public Ticket getObject() {
-        Ticket myObject = new Ticket("taskBody",1L,"assignedUser","assignor","title",
-                LocalDateTime.now(), "11-11-2011 12:09", "done");
+        Ticket ticket = new Ticket("taskBody",1L,"assignedUser","assignor","title", 1694463425L, TicketStatus.DONE );
 
-        return myObject;
+        return ticket;
     }
 }

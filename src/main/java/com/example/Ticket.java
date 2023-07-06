@@ -1,8 +1,8 @@
 package com.example;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,23 +15,21 @@ public class Ticket {
     private String assignedUser;
     private String assignor;
     private String title;
-    private LocalDateTime createdTime;
+    private Long createdTime; // saved as unix timestamp
+    private Long deadlineDate; // saved as unix timestamp
 
-    //expected to be LocalDateFormat, not String
-    private String deadlineDate;
-
-    private String status; // new, in progress, done,etc.
+    private TicketStatus status;
 
     public Ticket() {
     }
 
-    public Ticket(String taskBody, Long id, String assignedUser, String assignor, String title, LocalDateTime createdTime, String deadlineDate, String status) {
+    public Ticket(String taskBody, Long id, String assignedUser, String assignor, String title, Long deadlineDate, TicketStatus status) {
         this.taskBody = taskBody;
         this.id = id;
         this.assignedUser = assignedUser;
         this.assignor = assignor;
         this.title = title;
-        this.createdTime = createdTime;
+        this.setCreatedTime(Instant.now().getEpochSecond());
         this.deadlineDate = deadlineDate;
         this.status = status;
     }
