@@ -3,8 +3,6 @@ package com.example;
 import lombok.Data;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Data
 
@@ -12,8 +10,8 @@ public class Ticket {
 
     private String taskBody;
     private Long id;
-    private String assignedUser;
-    private String assignor;
+    private User assignedUser;
+    private User assignor;
     private String title;
     private Long createdTime; // saved as unix timestamp
     private Long deadlineDate; // saved as unix timestamp
@@ -23,7 +21,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(String taskBody, Long id, String assignedUser, String assignor, String title, Long deadlineDate, TicketStatus status) {
+    public Ticket(String taskBody, Long id, User assignedUser, User assignor, String title, Long deadlineDate, TicketStatus status) {
         this.taskBody = taskBody;
         this.id = id;
         this.assignedUser = assignedUser;

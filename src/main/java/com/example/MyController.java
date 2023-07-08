@@ -11,7 +11,11 @@ public class MyController {
 
     @GetMapping("/getObject")
     public Ticket getObject() {
-        Ticket ticket = new Ticket("taskBody",1L,"assignedUser","assignor","title", 1694463425L, TicketStatus.DONE );
+
+        User firstUser = new User(1L,"developer","Andrej");
+        User secondUser = new User(2L, "TeamLead", "Kiril");
+
+        Ticket ticket = new Ticket("taskBody",1L, firstUser, secondUser,"title", 1694463425L, TicketStatus.DONE );
 
         return ticket;
     }
