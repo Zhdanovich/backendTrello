@@ -5,23 +5,21 @@ import lombok.Data;
 import java.time.Instant;
 
 @Data
-
 public class Ticket {
 
     private String taskBody;
     private Long id;
-    private User assignedUser;
-    private User assignor;
+    private com.example.User assignedUser;
+    private com.example.User assignor;
     private String title;
     private Long createdTime; // saved as unix timestamp
     private Long deadlineDate; // saved as unix timestamp
-
     private TicketStatus status;
 
     public Ticket() {
     }
 
-    public Ticket(String taskBody, Long id, User assignedUser, User assignor, String title, Long deadlineDate, TicketStatus status) {
+    public Ticket(String taskBody, Long id, com.example.User assignedUser, User assignor, String title, Long deadlineDate, TicketStatus status) {
         this.taskBody = taskBody;
         this.id = id;
         this.assignedUser = assignedUser;
